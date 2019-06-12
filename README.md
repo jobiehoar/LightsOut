@@ -3,15 +3,12 @@ This version of Lights Out is a console application puzzle game consisting of a 
 
 At the beginning of the game, some of the lights are switched on.
 
-When a light is pressed, this light and the four adjacent lights are toggled,
+When a light is pressed, this light and the four adjacent lights are toggled. i.e., they are switched on if they were off, and switched off otherwise.
 
-i.e., they are switched on if they were off, and switched off otherwise. The purpose of the game is to
-switch all the lights off.
+The purpose of the game is to switch all the lights off.
 
-The aim of the game is to turn all the lights off.
+At any time enter 'q' to quit the game.
 
-At any time enter 'q' to quit the game
-
-Press a button by entering the x and y co-ordinates of the light you want to toggle.
+A light is pressed by entering the x and y co-ordinates of the light you want to toggle.
 
 Enjoy :)
