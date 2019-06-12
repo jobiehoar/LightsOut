@@ -9,8 +9,8 @@ namespace LightsOut
         private readonly IRandom _random;
 
         public bool[,] LightGrid { get; set; }
-        public int X { get; set; } = 5;
-        public int Y { get; set; } = 5;
+        public int XMax { get; set; } = 5;
+        public int YMax { get; set; } = 5;
 
         public Lights(IConsole console, IRandom random)
         {
@@ -20,65 +20,78 @@ namespace LightsOut
 
         public void Initialise()
         {
-            LightGrid = new bool[X, Y];
+            LightGrid = new bool[XMax, YMax];
 
-            var xRandom = _random.Next(0, X);
-            var yRandom = _random.Next(0, X);
+            int[] lightsOn = GetLightsOn();
 
-            for (var xDimension = 0; xDimension < X; xDimension++)
+            int lightNumber = -1;
+
+            for (var x = 0; x < XMax; x++)
             {
-                for (var yDimension = 0; yDimension < Y; yDimension++)
+                for (var y = 0; y < YMax; y++)
                 {
-                    if (xRandom.Equals(xDimension) && yRandom.Equals(yDimension))
-                        LightGrid[xDimension, yDimension] = true;
+                    lightNumber++;
+
+                    if (lightsOn.Contains(lightNumber))
+                        LightGrid[x, y] = true;
                     else
-                        LightGrid[xDimension, yDimension] = false;
+                        LightGrid[x, y] = false;
                 }
             }
+        }
+
+        private int[] GetLightsOn()
+        {
+            int maxLights = XMax * YMax;
+
+            var numberOfLightsOn = _random.Next(0, maxLights);
+
+            var lightsOn = new int[numberOfLightsOn];
+
+            for (var entry = 0; entry < numberOfLightsOn; entry++)
+            {
+                lightsOn[entry] = _random.Next(0, maxLights);
+            }
+
+            return lightsOn;
         }
 
         public void Display()
         {
-            var header = new StringBuilder(Y).Append(" ");
-            var grid = new StringBuilder(Y);
+            var header = new StringBuilder(YMax).Append(" ");
+            var lights = new StringBuilder(YMax);
 
-            for (var xDimension = 0; xDimension < X; xDimension++)
+            for (var x = 0; x < XMax; x++)
             {
-                for (var yDimension = 0; yDimension < Y; yDimension++)
+                for (var y = 0; y < YMax; y++)
                 {
-                    if (xDimension.Equals(0))
+                    if (x.Equals(0))
                     {
-                        header.Append("|").Append(yDimension);
+                        header.Append("|").Append(y);
                     }
 
-                    if (yDimension.Equals(0))
+                    if (y.Equals(0))
                     {
-                        grid.Append(xDimension).Append("|");
+                        lights.Append(x).Append("|");
                     }
 
-                    grid.Append(LightGrid[xDimension, yDimension] ? "*" : " ");
+                    lights.Append(LightGrid[x, y] ? "*" : " ");
 
-                    grid.Append("|");
+                    lights.Append("|");
                 }
 
-                grid.AppendLine();
+                lights.AppendLine();
             }
             _console.WriteLine(header.Append("|").ToString());
-            _console.WriteLine(grid.ToString());
+            _console.WriteLine(lights.ToString());
         }
 
-        public bool IsGameComplete()
+        public bool Out()
         {
-            for (var xDimension = 0; xDimension < X; xDimension++)
-            {
-                for (var yDimension = 0; yDimension < Y; yDimension++)
-                {
-                    if (LightGrid[xDimension, yDimension])
-                    {
+            for (var x = 0; x < XMax; x++)
+                for (var y = 0; y < YMax; y++)
+                    if (LightGrid[x, y])
                         return false;
-                    }
-                }
-            }
 
             return true;
         }

@@ -8,8 +8,6 @@ namespace LightsOut
         private readonly ILights _lights;
         private readonly ILightController _lightController;
         private readonly IValidator _validator;
-        private int _x;
-        private int _y;
 
         public LightsOut(IValidator validator, IConsole console, ILights lights, ILightController lightController)
         {
@@ -29,33 +27,27 @@ namespace LightsOut
 
             _console.WriteLine("Enter q to quit");
 
-            while (!_lights.IsGameComplete())
+            while (!_lights.Out())
             {
-                if (!IsInputValid()) continue;
+                _console.WriteLine("Enter row number");
+                var xInput = _console.ReadLine();
 
-                _lightController.Press(_lights.LightGrid, _lights.X, _lights.Y, _x, _y);
+                if (_validator.IsQuit(xInput)) Environment.Exit(0);
+                if (!_validator.IsValid(xInput, _lights.XMax)) continue;
+                int.TryParse(xInput, out var x);
 
+                _console.WriteLine("Enter column number");
+                var yInput = _console.ReadLine();
+
+                if (_validator.IsQuit(yInput)) Environment.Exit(0);
+                if (!_validator.IsValid(yInput, _lights.YMax)) continue;
+                int.TryParse(yInput, out var y);
+
+                _lightController.Press(_lights.LightGrid, _lights.XMax, _lights.YMax, x, y);
                 _lights.Display();
             }
 
             _console.WriteLine("Congratulations, you have turned out all the lights. You are a winner :)");
-        }
-
-        private bool IsInputValid()
-        {
-            _console.WriteLine("Enter x co-ordinates");
-            var x = _console.ReadLine();
-            if (_validator.IsQuit(x)) Environment.Exit(0);
-            if (!_validator.IsValid(x, _lights.X)) return false;
-            int.TryParse(x, out _x);
-
-            _console.WriteLine("Enter y co-ordinates");
-            var y = _console.ReadLine();
-            if (_validator.IsQuit(y)) Environment.Exit(0);
-            if (!_validator.IsValid(y, _lights.Y)) return false;
-            int.TryParse(y, out _y);
-
-            return true;
         }
     }
 }

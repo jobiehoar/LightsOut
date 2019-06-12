@@ -40,18 +40,18 @@ namespace LightsOut.Test
             Assert.AreEqual(expectedStub, inputStub);
         }
 
-        private bool[,] LightStub(int x, int y)
+        private bool[,] LightStub(int xInput, int yInput)
         {
             var lights= new bool[_xMax, _yMax];
 
-            for (var xDimension = 0; xDimension < _xMax; xDimension++)
+            for (var x = 0; x < _xMax; x++)
             {
-                for (var yDimension = 0; yDimension < _yMax; yDimension++)
+                for (var y = 0; y < _yMax; y++)
                 {
-                    if (x.Equals(xDimension) && y.Equals(yDimension))
-                        lights[xDimension, yDimension] = true;
+                    if (xInput.Equals(x) && yInput.Equals(y))
+                        lights[x, y] = true;
                     else
-                        lights[xDimension, yDimension] = false;
+                        lights[x, y] = false;
                 }
             }
 

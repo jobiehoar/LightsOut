@@ -1,5 +1,8 @@
 ﻿namespace LightsOut
 {
+    /// <summary>
+    /// NOTE: I considered using the visitor pattern but opted for a simple approach.
+    /// </summary>
     public class LightController : ILightController
     {
         public void Press(bool[,] lights, int xMax, int yMax, int x, int y)
@@ -18,7 +21,7 @@
 
         private static void ToggleXMinusOne(bool[,] lights, int x, int y)
         {
-            if (x - 1 > 0) lights[x - 1, y] = !lights[x - 1, y];
+            if (x - 1 >= 0) lights[x - 1, y] = !lights[x - 1, y];
         }
 
         private static void ToggleXPlusOne(bool[,] lights, int xMax, int x, int y)
@@ -28,7 +31,7 @@
 
         private static void ToggleYMinusOne(bool[,] lights, int x, int y)
         {
-            if (y - 1 > 0) lights[x, y - 1] = !lights[x, y - 1];
+            if (y - 1 >= 0) lights[x, y - 1] = !lights[x, y - 1];
         }
 
         private static void ToggleYPlusOne(bool[,] lights, int yMax, int x, int y)
