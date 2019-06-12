@@ -2,8 +2,11 @@
 {
     public interface ILights
     {
+        int X { get; set; }
+        int Y { get; set; }
         bool[,] LightGrid { get; set; }
-        void Display();
         void Initialise();
+        void Display();
+        bool IsGameComplete();
     }
 }

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace LightsOut
+﻿namespace LightsOut
 {
     public class Validator : IValidator
     {
@@ -11,9 +9,7 @@ namespace LightsOut
             _console = console;
         }
 
-
-
-        public bool IsValid(string input)
+        public bool IsValid(string input, int max)
         {
             if (string.IsNullOrEmpty(input))
             {
@@ -21,9 +17,15 @@ namespace LightsOut
                 return false;
             }
 
-            if (!int.TryParse(input, out _))
+            if (!int.TryParse(input, out var x))
             {
                 _console.WriteLine("Please enter an integer");
+                return false;
+            }
+
+            if (x >= max)
+            {
+                _console.WriteLine("Please enter an integer between 0 and " + (max - 1));
                 return false;
             }
 

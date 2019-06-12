@@ -25,6 +25,7 @@ namespace LightsOut
             container.RegisterType<IValidator, Validator>();
             container.RegisterType<ILights, Lights>();
             container.RegisterType<ILightsOut, LightsOut>();
+            container.RegisterType<ILightController, LightController>();
         }
     }
 }

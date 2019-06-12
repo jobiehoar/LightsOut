@@ -29,7 +29,7 @@ namespace LightsOut.Test
         {
             string input = null;
 
-            var result = _validator.IsValid(input);
+            var result = _validator.IsValid(input, 5);
 
             Assert.IsFalse(result);
         }
@@ -40,7 +40,7 @@ namespace LightsOut.Test
         {
             const string input = "1";
 
-            var result = _validator.IsValid(input);
+            var result = _validator.IsValid(input, 5);
 
             Assert.IsTrue(result);
         }
@@ -50,9 +50,20 @@ namespace LightsOut.Test
         {
             const string input = "d";
 
-            var result = _validator.IsValid(input);
+            var result = _validator.IsValid(input, 5);
 
             Assert.IsFalse(result);
         }
+
+        [Test]
+        public void Given_input_is_more_than_max_When_user_enters_value_Then_return_false()
+        {
+            const string input = "6";
+
+            var result = _validator.IsValid(input, 5);
+
+            Assert.IsFalse(result);
+        }
+
     }
 }

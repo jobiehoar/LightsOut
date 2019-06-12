@@ -16,7 +16,25 @@ namespace LightsOut
         {
             _console = console;
             _random = random;
-            Initialise();
+        }
+
+        public void Initialise()
+        {
+            LightGrid = new bool[X, Y];
+
+            var xRandom = _random.Next(0, X);
+            var yRandom = _random.Next(0, X);
+
+            for (var xDimension = 0; xDimension < X; xDimension++)
+            {
+                for (var yDimension = 0; yDimension < Y; yDimension++)
+                {
+                    if (xRandom.Equals(xDimension) && yRandom.Equals(yDimension))
+                        LightGrid[xDimension, yDimension] = true;
+                    else
+                        LightGrid[xDimension, yDimension] = false;
+                }
+            }
         }
 
         public void Display()
@@ -49,23 +67,20 @@ namespace LightsOut
             _console.WriteLine(grid.ToString());
         }
 
-        public void Initialise()
+        public bool IsGameComplete()
         {
-            LightGrid = new bool[X, Y];
-
-            var xRandom = _random.Next(0, X);
-            var yRandom = _random.Next(0, X);
-
             for (var xDimension = 0; xDimension < X; xDimension++)
             {
                 for (var yDimension = 0; yDimension < Y; yDimension++)
                 {
-                    if (xRandom.Equals(xDimension) && yRandom.Equals(yDimension))
-                        LightGrid[xDimension, yDimension] = true;
-                    else
-                        LightGrid[xDimension, yDimension] = false;
+                    if (LightGrid[xDimension, yDimension])
+                    {
+                        return false;
+                    }
                 }
             }
+
+            return true;
         }
-    }
+     }
 }
