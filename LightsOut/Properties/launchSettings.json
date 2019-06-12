@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "LightsOut": {
+      "commandName": "Project",
+      //"commandLineArgs": "\"1\", \"1\"",
+      "commandLineArgs": "\"1\", \"1\", \"1\"",
+      //"commandLineArgs": "\"q\""
+    }
+  }
+}

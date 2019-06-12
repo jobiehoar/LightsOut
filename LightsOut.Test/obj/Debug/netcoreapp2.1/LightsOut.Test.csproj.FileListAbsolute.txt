@@ -1,0 +1,17 @@
+D:\Personal\LightsOut\LightsOut.Test\bin\Debug\netcoreapp2.1\NUnit3.TestAdapter.dll
+D:\Personal\LightsOut\LightsOut.Test\bin\Debug\netcoreapp2.1\NUnit3.TestAdapter.pdb
+D:\Personal\LightsOut\LightsOut.Test\bin\Debug\netcoreapp2.1\nunit.engine.netstandard.dll
+D:\Personal\LightsOut\LightsOut.Test\bin\Debug\netcoreapp2.1\LightsOut.Test.deps.json
+D:\Personal\LightsOut\LightsOut.Test\bin\Debug\netcoreapp2.1\LightsOut.Test.runtimeconfig.json
+D:\Personal\LightsOut\LightsOut.Test\bin\Debug\netcoreapp2.1\LightsOut.Test.runtimeconfig.dev.json
+D:\Personal\LightsOut\LightsOut.Test\bin\Debug\netcoreapp2.1\LightsOut.Test.dll
+D:\Personal\LightsOut\LightsOut.Test\bin\Debug\netcoreapp2.1\LightsOut.Test.pdb
+D:\Personal\LightsOut\LightsOut.Test\obj\Debug\netcoreapp2.1\LightsOut.Test.csprojAssemblyReference.cache
+D:\Personal\LightsOut\LightsOut.Test\obj\Debug\netcoreapp2.1\LightsOut.Test.csproj.CoreCompileInputs.cache
+D:\Personal\LightsOut\LightsOut.Test\obj\Debug\netcoreapp2.1\LightsOut.Test.AssemblyInfoInputs.cache
+D:\Personal\LightsOut\LightsOut.Test\obj\Debug\netcoreapp2.1\LightsOut.Test.AssemblyInfo.cs
+D:\Personal\LightsOut\LightsOut.Test\obj\Debug\netcoreapp2.1\LightsOut.Test.dll
+D:\Personal\LightsOut\LightsOut.Test\obj\Debug\netcoreapp2.1\LightsOut.Test.pdb
+D:\Personal\LightsOut\LightsOut.Test\bin\Debug\netcoreapp2.1\LightsOut.dll
+D:\Personal\LightsOut\LightsOut.Test\bin\Debug\netcoreapp2.1\LightsOut.pdb
+D:\Personal\LightsOut\LightsOut.Test\obj\Debug\netcoreapp2.1\LightsOut.Test.csproj.CopyComplete
