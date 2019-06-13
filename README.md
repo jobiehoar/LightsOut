@@ -1,11 +1,14 @@
 # LightsOut
-Lights Out is a puzzle game consisting of an n x n grid of lights. At the beginning of the game, some of
-the lights are switched on. When a light is pressed, this light and the four adjacent lights are toggled,
-i.e., they are switched on if they were off, and switched off otherwise. The purpose of the game is to
-switch all the lights off.
+This version of Lights Out is a console application puzzle game consisting of a 5 x 5 grid of lights.
 
-Implement the game for a 5 by 5 grid in the .Net environment.
-The game must start with some lights turned on, and the user keeps playing till he either gives up or
-turns off all the lights.
-There is no need to focus on the interface of the game. A simple console or WinForms application is
-enough.
+At the beginning of the game, some of the lights are switched on.
+
+When a light is pressed, this light and the four adjacent lights are toggled. i.e., they are switched on if they were off, and switched off otherwise.
+
+The purpose of the game is to switch all the lights off.
+
+At any time enter 'q' to quit the game.
+
+A light is pressed by entering the x and y co-ordinates of the light you want to toggle.
+
+Enjoy :)
