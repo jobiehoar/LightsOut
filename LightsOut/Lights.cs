@@ -44,7 +44,7 @@ namespace LightsOut
         {
             int maxLights = XMax * YMax;
 
-            var numberOfLightsOn = _random.Next(0, maxLights);
+            var numberOfLightsOn = _random.Next(1, maxLights);
 
             var lightsOn = new int[numberOfLightsOn];
 

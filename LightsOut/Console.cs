@@ -1,6 +1,8 @@
-﻿
-namespace LightsOut
+﻿namespace LightsOut
 {
+    /// <summary>
+    /// Wrapper class for Console
+    /// </summary>
     public class Console : IConsole
     {
         public void WriteLine(string log)

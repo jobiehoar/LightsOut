@@ -1,5 +1,4 @@
 ﻿using Unity;
-using Unity.Injection;
 
 namespace LightsOut
 {

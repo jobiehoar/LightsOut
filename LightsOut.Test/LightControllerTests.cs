@@ -17,45 +17,29 @@ namespace LightsOut.Test
         [Test]
         public void Given_a_user_presses_light_When_selected_light_is_on_top_left_boundary_Then_calculate_lights_correctly()
         {
-            var inputStub = LightStub(0, 0);
+            var actualLightsOn = new int[1, 2] { { 0, 0 } };
+            var actualLights = LightsStub.LightStub(actualLightsOn, _xMax, _yMax);
 
-            var expectedStub = LightStub(0, 1);
-            expectedStub[1, 0] = true;
+            var expectedLightsOn = new int[2, 2] { { 0, 1 }, { 1, 0 } };
+            var expectedLights = LightsStub.LightStub(expectedLightsOn, _xMax, _yMax);
 
-            _lightController.Press(inputStub, _xMax, _yMax, 0, 0);
+            _lightController.Press(actualLights, _xMax, _yMax, 0, 0);
 
-            Assert.AreEqual(expectedStub, inputStub);
+            Assert.AreEqual(expectedLights, actualLights);
         }
 
         [Test]
         public void Given_a_user_presses_light_When_selected_light_is_on_bottom_right_boundary_Then_calculate_lights_correctly()
         {
-            var inputStub = LightStub(4, 4);
+            var actualLightsOn = new int[1, 2] { { 4, 4 } };
+            var actualLights = LightsStub.LightStub(actualLightsOn, _xMax, _yMax);
 
-            var expectedStub = LightStub(3, 4);
-            expectedStub[4, 3] = true;
+            var expectedLightsOn = new int[2, 2] { { 3, 4 }, { 4, 3 } };
+            var expectedLights = LightsStub.LightStub(expectedLightsOn, _xMax, _yMax);
 
-            _lightController.Press(inputStub, _xMax, _yMax, 4, 4);
+            _lightController.Press(actualLights, _xMax, _yMax, 4, 4);
 
-            Assert.AreEqual(expectedStub, inputStub);
-        }
-
-        private bool[,] LightStub(int xInput, int yInput)
-        {
-            var lights= new bool[_xMax, _yMax];
-
-            for (var x = 0; x < _xMax; x++)
-            {
-                for (var y = 0; y < _yMax; y++)
-                {
-                    if (xInput.Equals(x) && yInput.Equals(y))
-                        lights[x, y] = true;
-                    else
-                        lights[x, y] = false;
-                }
-            }
-
-            return lights;
+            Assert.AreEqual(expectedLights, actualLights);
         }
     }
 }

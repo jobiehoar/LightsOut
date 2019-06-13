@@ -1,5 +1,8 @@
 ﻿namespace LightsOut
 {
+    /// <summary>
+    /// Wrapper class for Random
+    /// </summary>
     public class Random : IRandom
     {
         private readonly System.Random _random;
